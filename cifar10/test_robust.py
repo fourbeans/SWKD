@@ -27,8 +27,6 @@ from torchvision.transforms.functional import InterpolationMode
 import numpy as np
 import random
 
-
-# 固定随机数种子
 def setup_seed(seed):
     random.seed(seed)
     os.environ['PYTHONHASHSEED'] = str(seed)
