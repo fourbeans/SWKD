@@ -258,7 +258,7 @@ def main():
 
     parser.add_argument('-mode', default='train', type=str, help='test')
     parser.add_argument('-m_weight', default=0.1, type=float, help='')
-    # 蒸馏参数
+    
     parser.add_argument('-teacher', default='ann', type=str, help='selected teacher model')
     parser.add_argument('-teacher_dir', type=str, default='/zjh/ssj/RKD/cifar10/pt/ann_T0_e1024_b128_sgd_lr0.1_c256_mw0.1/checkpoint_max.pth', help='teacher dir for  checkpoint')
     parser.add_argument('-alpha', default=0.6, type=float, help='weight for CE loss')
@@ -530,4 +530,5 @@ def main():
 
 
 if __name__ == '__main__':
+
     main()
