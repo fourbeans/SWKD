@@ -12,9 +12,7 @@ import argparse
 from torch.cuda import amp
 import sys
 import datetime
-# from models.neurons import *
-# from models.neurons_modified import *
-from models.neurons_modified_t import * #only here is changed
+from models.neurons_modified import *
 
 from models.ResNet19_ann import *
 from models.ResNet19_snn import *
@@ -32,14 +30,14 @@ import random
 
 # 固定随机数种子
 def setup_seed(seed):
-    random.seed(seed)   # Python的随机性
-    os.environ['PYTHONHASHSEED'] = str(seed)    # 设置Python哈希种子，为了禁止hash随机化，使得实验可复现
-    np.random.seed(seed)   # numpy的随机性
-    torch.manual_seed(seed)   # torch的CPU随机性，为CPU设置随机种子
-    torch.cuda.manual_seed(seed)   # torch的GPU随机性，为当前GPU设置随机种子
-    torch.cuda.manual_seed_all(seed)  # if you are using multi-GPU.   torch的GPU随机性，为所有GPU设置随机种子
-    torch.backends.cudnn.benchmark = False   # if benchmark=True, deterministic will be False
-    torch.backends.cudnn.deterministic = True   # 选择确定性算法
+    random.seed(seed)
+    os.environ['PYTHONHASHSEED'] = str(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.benchmark = False
+    torch.backends.cudnn.deterministic = True
 
 torch.autograd.set_detect_anomaly(True)
 setup_seed(100)
