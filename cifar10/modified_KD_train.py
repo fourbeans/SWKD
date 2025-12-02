@@ -415,7 +415,7 @@ def main():
                 logit_gamma = args.logit_gamma * min(1.0, (epoch + 1) / args.warmup_epochs)
             else:
                 # stage2
-                feature_beta = args.feature_beta * min(1.0, epoch_ratio * 2) # 前50%训练线性增加
+                feature_beta = args.feature_beta * min(1.0, epoch_ratio * 2) 
                 logit_gamma = args.logit_gamma * min(1.0, epoch_ratio * 2)
 
             for step, (img, target) in enumerate(train_data_loader):
@@ -532,3 +532,4 @@ def main():
 if __name__ == '__main__':
 
     main()
+
